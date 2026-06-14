@@ -114,14 +114,6 @@ sudo depmod -a
 
 Since I found this challenge very interesting, I decided to create a similar challenge for myself based on these concepts and call it task_5_sequel. If you are interested, feel free to view and solve that challenge on your journey of learning kernel development as well! :)
 
----
-
-### A Quick Note on the Technical Edits:
-
-The biggest technical adjustment I made was clarifying the difference between the kernel and `udev`. The kernel itself doesn't read the files in `/etc/udev/rules.d/`—the kernel just shouts "Hey, a USB was plugged in!" (a `uevent`), and a separate background program running in user-space (`systemd-udevd`) actually reads the rules folder and decides to run `modprobe`.
-
-The "sequel" challenge you mentioned at the end sounds like a fantastic way to cement these concepts. What kind of twist did you add for your custom Task 5 sequel?
-
 <details>
 
 <summary><b>Wait?! Need a deeper dive into the "Dispatch" and "Catch" mechanics? Click here!</b></summary> 
