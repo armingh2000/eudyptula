@@ -89,6 +89,27 @@ sudo udevadm trigger --action=add --subsystem-match=usb
 dmesg
 ```
 
+### Clean Up
+
+To clean up the changes made to the system, you can run the following:
+
+```bash
+# 1. Force the module out of live system memory
+sudo rmmod helloworld
+
+# 2. Delete your custom rule file
+sudo rm /etc/udev/rules.d/usb.rules
+
+# 3. Delete your compiled module from the kernel tree
+sudo rm -rf /lib/modules/$(uname -r)/extra/helloworld.ko
+
+# 4. Tell udev to forget your rule immediately
+sudo udevadm control --reload-rules
+
+# 5. Tell the kernel module loader to rebuild its index cleanly
+sudo depmod -a
+```
+
 ### Follow-up challenge (sequel?!)
 
 Since I found this challenge very interesting, I decided to create a similar challenge for myself based on these concepts and call it task_5_sequel. If you are interested, feel free to view and solve that challenge on your journey of learning kernel development as well! :)
@@ -162,9 +183,5 @@ When the kernel pushes the USB event text into the socket, it sees that `udev` i
 As soon as that interrupt finishes, the kernel hits that `return_from_interrupt` logic, sees the `TIF_NEED_RESCHED` flag, calls `schedule()`, and **instantly jumps into the `udev` process**.
 
 `udev` wakes up, reads the socket data, sees the USB event, executes your rule, and runs `modprobe`.
-
-### The Illusion
-
-The operating system goes to incredible lengths to make you feel like your programs have 100% control of the computer. It’s a brilliant illusion. The reality is that the hardware is violently and relentlessly ripping the CPU away from your programs thousands of times a second. Hardware forces the software to share, and the timer interrupt ensures that when a high-priority event—like your USB device—arrives, the system reacts in the blink of an eye.
 
 </details>
