@@ -1,6 +1,6 @@
 # Task 4
 
-## Problem
+## Challenge
 
 Wonderful job in making it this far, I hope you have been having fun.
 Oh, you're getting bored, just booting and installing kernels?  Well,
