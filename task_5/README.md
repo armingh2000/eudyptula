@@ -110,10 +110,6 @@ sudo udevadm control --reload-rules
 sudo depmod -a
 ```
 
-### Follow-up challenge (sequel?!)
-
-Since I found this challenge very interesting, I decided to create a similar challenge for myself based on these concepts and call it task_5_sequel. If you are interested, feel free to view and solve that challenge on your journey of learning kernel development as well! :)
-
 <details>
 
 <summary><b>Wait?! Need a deeper dive into the "Dispatch" and "Catch" mechanics? Click here!</b></summary> 
