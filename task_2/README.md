@@ -212,7 +212,6 @@ cp ../busybox bin/
 We need to create a file named `init` at the root of our folder and put the commands below in it. Notice how it tells BusyBox to install symlinks for all common commands (like `ls`, `cat`, etc.) so they all point back to the BusyBox binary:
 
 ```bash
-cat << 'EOF' > init
 #!/bin/busybox sh
 
 # Install all busybox symlinks (so 'ls' points to 'busybox', etc.)
@@ -229,8 +228,6 @@ echo "====================================="
 
 # Hand over control to the shell
 exec /bin/sh
-EOF
-
 ```
 
 Once created, we must make the file executable (otherwise the kernel will panic because it can't run it):
