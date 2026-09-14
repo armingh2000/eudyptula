@@ -3,6 +3,10 @@
 
 Welcome to my documentation and walkthrough of **The Eudyptula Challenge**. 
 
+<p align="center">
+<img src="assets/logo.jpg" alt="Eudyptula Challenge" width="240" height="240">
+</p> 
+
 The Eudyptula Challenge was a legendary series of 20 programming exercises designed to take developers from writing basic kernel modules to contributing directly to the Linux kernel codebase. The tasks cover writing out-of-tree drivers, configuring and building custom kernels, navigating git trees, handling kernel coding conventions, interacting with hardware events via `udev`, writing character and `debugfs` devices, navigating locking mechanisms, and contributing clean patches.
 
 This repository serves as my personal technical logbook, documenting the code, build workflows, deep-dive conceptual notes, and solutions for each challenge.
